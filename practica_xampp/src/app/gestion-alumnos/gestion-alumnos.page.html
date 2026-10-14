@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Gestion de Alumnos</ion-title>
+    <ion-button size="small" href="home">Ir a home</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Ingresa datos del alumno</h2>
+  <ion-list>
+    <ion-item>
+      <ion-input label="Numero de Control" labelPlacement="floating" [(ngModel)]="alumno.n_control" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Nombre" labelPlacement="floating" [(ngModel)]="alumno.nombre" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Segundo Nombre" labelPlacement="floating" [(ngModel)]="alumno.snombre" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Apellido Paterno" labelPlacement="floating" [(ngModel)]="alumno.apat" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Apellido Materno" labelPlacement="floating" [(ngModel)]="alumno.amat" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Fecha de Nacimiento" labelPlacement="floating" type="text" inputmode="numeric"
+        placeholder="DD/MM/AAAA" maxlength="10" [value]="fechaTexto" (ionInput)="formatearFecha($event)"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Genero" [(ngModel)]="alumno.genero">
+        <ion-select-option value="H">Hombre</ion-select-option>
+        <ion-select-option value="M">Mujer</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Carrera" [(ngModel)]="alumno.fk_caralu">
+        @for (carrera of listaCarreras; track carrera.id) {
+          <ion-select-option [value]="carrera.id">
+            {{ carrera.nombre }}
+          </ion-select-option>
+        }
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  @if (listaCarreras.length === 0) {
+    <p class="ion-padding-start">No hay carreras registradas. Primero registra una en gestion-carreras.</p>
+  }
+
+  <ion-button expand="block" class="ion-margin-top" (click)="guardarDatos()">Guardar</ion-button>
+
+</ion-content>

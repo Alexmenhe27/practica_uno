@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+
+    <ion-item>
+      <ion-input
+        label="IP del Servidor" labelPlacement="floating" type="text"
+        placeholder="Ej. 192.168.137.1" [(ngModel)]="ipServidor">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Correo"
+        labelPlacement="floating" type="email" [(ngModel)]="usuario.correo">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Contraseña" labelPlacement="floating" type="password"
+        [(ngModel)]="usuario.contra" (keyup.enter)="login()">
+      </ion-input>
+    </ion-item>
+
+    <ion-button expand="block" class="ion-margin-top" (click)="login()"> Entrar
+    </ion-button>
+  </div>
+</ion-content>

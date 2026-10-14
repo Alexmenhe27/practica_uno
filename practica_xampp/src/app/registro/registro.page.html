@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Registrar Chango🙈</ion-title>
+    <ion-button size="small" href="home">Ir a home</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content class="ion-padding">
+    <h2>Ingresa tus datos</h2>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Nombre completo" labelPlacement="floating"[(ngModel)]="usuario.nombre" type="text"></ion-input>
+        <br>
+        <ion-input label="Numero de control" labelPlacement="floating"[(ngModel)]="usuario.matricula" type="text"></ion-input>
+        <ion-input label="Correo Electronico" labelPlacement="floating"[(ngModel)]="usuario.correo" type="text"></ion-input>
+        <ion-input label="Contraseña (para iniciar sesión)" labelPlacement="floating"[(ngModel)]="usuario.contra" type="password"></ion-input>
+
+
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" class ="ion-margin-top"(click)="guardarDatos()">Guardar</ion-button>
+
+  </ion-content>
+
+
